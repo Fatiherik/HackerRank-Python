@@ -1,507 +1,418 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2511
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Arial-BoldMT;}
-{\colortbl;\red255\green255\blue255;\red13\green16\blue23;\red255\green255\blue255;}
-{\*\expandedcolortbl;;\cssrgb\c5490\c7843\c11765;\cssrgb\c100000\c100000\c100000;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28300\viewh17700\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Question 1- Zipped!
 
-\f0\fs28 \cf0 Question 1- 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 Zipped!\
-\
-a,b=map(int,input().split())\
-liste=[]\
-for i in range(b):\
-    c=list(map(float,input().split()))\
-    liste.append(c)\
-\
-result=zip(*liste)\
-result_list=list(result)\
-for i in range(a):\
-    print(sum(result_list[i])/b)\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+a,b=map(int,input().split())
+liste=[]
+for i in range(b):
+    c=list(map(float,input().split()))
+    liste.append(c)
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 2- Calendar Module\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-from datetime import date,datetime\
-import calendar\
-a,b,c=map(int,input().split())\
-my_date = date(c, a, b)\
-print(calendar.day_name[my_date.weekday()].upper())\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+result=zip(*liste)
+result_list=list(result)
+for i in range(a):
+    print(sum(result_list[i])/b)
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 3- Set .discard(), .remove() & .pop()\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-n = int(input())\
-s = set(map(int, input().split()))\
-t= int(input())\
-for i in range(t):\
-    r=input()\
-    if r=="pop":\
-        s.pop()\
-    else:\
-        a,b=r.split()\
-        if a=="remove":\
-            s.remove(int(b))\
-        elif a=="discard":\
-            s.discard(int(b))\
-print(sum(s))\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Question 2- Calendar Module
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 4- Exceptions\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-n=int(input())\
-\
-for i in range(n):\
-    a,b=input().split(" ")\
-    try:\
-        print (int(a)//int(b))\
-    except ZeroDivisionError as e:\
-            print ("Error Code:",e)\
-    except ValueError as e:\
-            print ("Error Code:",e)\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+from datetime import date,datetime
+import calendar
+a,b,c=map(int,input().split())
+my_date = date(c, a, b)
+print(calendar.day_name[my_date.weekday()].upper())
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 5- Utopian Tree\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-# Complete the utopianTree function below.\
-def utopianTree(n):\
-    list=[1]\
-    for i in range(1,n+1):\
-        if i%2!=0:\
-            list.append(list[-1]*2)\
-        else:\
-            list.append(list[-1]+1)\
-    return list[n]\
-"""2,4,3\
-7,6\
-1,2,3,4"""\
-\
-if __name__ == '__main__':\
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')\
-\
-    t = int(input())\
-\
-    for t_itr in range(t):\
-        n = int(input())\
-\
-        result = utopianTree(n)\
-\
-        fptr.write(str(result) + '\\n')\
-\
-    fptr.close()\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Question 3- Set .discard(), .remove() & .pop()
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 6- Electronics Shop\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import os\
-import sys\
-import math\
-\
-#\
-# Complete the getMoneySpent function below.\
-#\
-def getMoneySpent(keyboards, drives, b):\
-    a=[]\
-    for i in keyboards:\
-        for j in drives:\
-            if (i+j)<=b:\
-                a.append(i+j)\
-    for i in a:\
-        if i>b:\
-            a.remove(i)\
-    if len(a)!=0:\
-        return max(a)\
-    else:\
-        return -1\
-\
-if __name__ == '__main__':\
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')\
-\
-    bnm = input().split()\
-\
-    b = int(bnm[0])\
-\
-    n = int(bnm[1])\
-\
-    m = int(bnm[2])\
-\
-\
-    keyboards = list(map(int, input().rstrip().split()))\
-\
-    drives = list(map(int, input().rstrip().split()))\
-\
-    #\
-    # The maximum amount of money she can spend on a keyboard and USB drive, or -1 if she can't purchase both items\
-    #\
-\
-    moneySpent = getMoneySpent(keyboards, drives, b)\
-\
-    fptr.write(str(moneySpent) + '\\n')\
-\
-    fptr.close()\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+n = int(input())
+s = set(map(int, input().split()))
+t= int(input())
+for i in range(t):
+    r=input()
+    if r=="pop":
+        s.pop()
+    else:
+        a,b=r.split()
+        if a=="remove":
+            s.remove(int(b))
+        elif a=="discard":
+            s.discard(int(b))
+print(sum(s))
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 7- Picking Numbers\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-#\
-# Complete the 'pickingNumbers' function below.\
-#\
-# The function is expected to return an INTEGER.\
-# The function accepts INTEGER_ARRAY a as parameter.\
-#\
-\
-def pickingNumbers(a):\
-    list=[]\
-    for i in range(n):\
-        sublist = []\
-        b = a.copy()\
-        t = b[i]\
-        sublist.append(t)\
-        b.remove(t)\
-        for j in b:\
-            if t - j == 0 or t - j == 1:\
-                sublist.append(j)\
-        list.append(sublist)\
-\
-    for i in range(n):\
-        sublist = []\
-        b = a.copy()\
-        t = b[i]\
-        sublist.append(t)\
-        b.remove(t)\
-        for j in b:\
-            if t - j == 0 or t - j == -1:\
-                sublist.append(j)\
-        list.append(sublist)\
-    c = max(map(len, list))\
-    return c\
-\
-            \
-\
-if __name__ == '__main__':\
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')\
-\
-    n = int(input().strip())\
-\
-    a = list(map(int, input().rstrip().split()))\
-\
-    result = pickingNumbers(a)\
-\
-    fptr.write(str(result) + '\\n')\
-\
-    fptr.close()\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Question 4- Exceptions
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 8- List Comprehensions\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-if __name__ == '__main__':\
-    x = int(input())\
-    y = int(input())\
-    z = int(input())\
-    n = int(input())\
-    print ([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a + b + c != n ])\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+n=int(input())
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 9- Lists\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-if __name__ == '__main__':\
-    N = int(input())\
-    i=1\
-    list=[]\
-    while i<N+1:\
-        list1=[]\
-        list1.append(input().split(" "))\
-        if list1[0][0]=="insert":\
-            list.insert(int(list1[0][1]),int(list1[0][2]))\
-        elif list1[0][0]=="print":\
-            print(list)\
-        elif list1[0][0]=="remove":\
-            list.remove(int(list1[0][1]))\
-        elif list1[0][0]=="append":\
-            list.append(int(list1[0][1]))\
-        elif list1[0][0]=="sort":\
-            list.sort()\
-        elif list1[0][0]=="pop":\
-            list.pop()\
-        elif list1[0][0]=="reverse":\
-            list.reverse()\
-        i=i+1\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+for i in range(n):
+    a,b=input().split(" ")
+    try:
+        print (int(a)//int(b))
+    except ZeroDivisionError as e:
+            print ("Error Code:",e)
+    except ValueError as e:
+            print ("Error Code:",e)
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 10- Nested Lists\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-if __name__ == '__main__':\
-    list1=[]\
-    list2=[]\
-    for _ in range(int(input())):\
-        name = input()\
-        score = float(input())\
-        list1.append([name,score])\
-        list2.append(score)\
-    second_lowest_mark = sorted(list(set(list2)))[1]\
-    for a,b in sorted(list1):\
-        if b==second_lowest_mark:\
-            print(a)\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Question 5- Utopian Tree
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 11- Find the Runner-Up Score!\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-if __name__ == '__main__':\
-    n = int(input())\
-    arr = map(int, input().split())\
-    arr=list(set(arr))\
-    arr.sort()\
-    arr.pop()\
-    x=arr.pop()\
-    print(x)\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+#!/bin/python3
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 12- Finding the percentage\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-if __name__ == '__main__':\
-    n = int(input())\
-    student_marks = \{\}\
-    for _ in range(n):\
-        name, *line = input().split()\
-        scores = list(map(float, line))\
-        student_marks[name] = scores\
-    query_name = input()\
-\
-    add=0\
-    for i in range(3):\
-        add+=student_marks[query_name][i]\
-    print('\{:.2f\}'.format(add/3))\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+import math
+import os
+import random
+import re
+import sys
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 13- Staircase\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-# Complete the staircase function below.\
-def staircase(n):\
-    x=1\
-    for i in range(n):\
-        y = n - x\
-        print(" "*y+"#"*x)\
-        x+=1\
-\
-if __name__ == '__main__':\
-    n = int(input())\
-\
-    staircase(n)\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+# Complete the utopianTree function below.
+def utopianTree(n):
+    list=[1]
+    for i in range(1,n+1):
+        if i%2!=0:
+            list.append(list[-1]*2)
+        else:
+            list.append(list[-1]+1)
+    return list[n]
+"""2,4,3
+7,6
+1,2,3,4"""
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 14- Left Rotation\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-\
-\
-if __name__ == '__main__':\
-    nd = input().split()\
-\
-    n = int(nd[0])\
-\
-    d = int(nd[1])\
-\
-    a = list(map(int, input().rstrip().split()))\
-\
-for i in range (d):\
-    x=a.pop(0)\
-    a.append(x)\
-\
-for i in range(n): \
-    print (a[i], end =" ") \
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 15- Diagonal Difference\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-#\
-# Complete the 'diagonalDifference' function below.\
-#\
-# The function is expected to return an INTEGER.\
-# The function accepts 2D_INTEGER_ARRAY arr as parameter.\
-#\
-\
-def diagonalDifference(arr):\
-    primary_diagonal=0\
-    secondary_diagonal=0\
-\
-    for k in range(n):\
-        primary_diagonal+=arr[k][k]\
-        secondary_diagonal+=arr[n-1-k][k]\
-    \
-    return abs(primary_diagonal-secondary_diagonal)\
-\
-if __name__ == '__main__':\
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')\
-\
-    n = int(input().strip())\
-\
-    arr = []\
-\
-    for _ in range(n):\
-        arr.append(list(map(int, input().rstrip().split())))\
-\
-    result = diagonalDifference(arr)\
-\
-    fptr.write(str(result) + '\\n')\
-\
-    fptr.close()\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+    t = int(input())
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 16- Cats and a Mouse\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-#!/bin/python3\
-\
-import math\
-import os\
-import random\
-import re\
-import sys\
-\
-# Complete the catAndMouse function below.\
-def catAndMouse(x, y, z):\
-    if abs(x-z)<abs(y-z):\
-        return "Cat A"\
-    elif abs(x-z)>abs(y-z):\
-        return "Cat B"\
-    else:\
-        return "Mouse C"\
-\
-if __name__ == '__main__':\
-    fptr = open(os.environ['OUTPUT_PATH'], 'w')\
-\
-    q = int(input())\
-\
-    for q_itr in range(q):\
-        xyz = input().split()\
-\
-        x = int(xyz[0])\
-\
-        y = int(xyz[1])\
-\
-        z = int(xyz[2])\
-\
-        result = catAndMouse(x, y, z)\
-\
-        fptr.write(result + '\\n')\
-\
-    fptr.close()\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+    for t_itr in range(t):
+        n = int(input())
 
-\f0\b0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 Question 
-\f1\b \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 17- Solve Me First\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf2 \
-\
-def solveMeFirst(a,b):\
-    return a+b\
-	# Hint: Type return a+b below\
-\
-\
-num1 = int(input())\
-num2 = int(input())\
-res = solveMeFirst(num1,num2)\
-print(res)}
+        result = utopianTree(n)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+Question 6- Electronics Shop
+
+#!/bin/python3
+
+import os
+import sys
+import math
+
+#
+# Complete the getMoneySpent function below.
+#
+def getMoneySpent(keyboards, drives, b):
+    a=[]
+    for i in keyboards:
+        for j in drives:
+            if (i+j)<=b:
+                a.append(i+j)
+    for i in a:
+        if i>b:
+            a.remove(i)
+    if len(a)!=0:
+        return max(a)
+    else:
+        return -1
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    bnm = input().split()
+
+    b = int(bnm[0])
+
+    n = int(bnm[1])
+
+    m = int(bnm[2])
+
+
+    keyboards = list(map(int, input().rstrip().split()))
+
+    drives = list(map(int, input().rstrip().split()))
+
+    #
+    # The maximum amount of money she can spend on a keyboard and USB drive, or -1 if she can't purchase both items
+    #
+
+    moneySpent = getMoneySpent(keyboards, drives, b)
+
+    fptr.write(str(moneySpent) + '\n')
+
+    fptr.close()
+
+Question 7- Picking Numbers
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'pickingNumbers' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts INTEGER_ARRAY a as parameter.
+#
+
+def pickingNumbers(a):
+    list=[]
+    for i in range(n):
+        sublist = []
+        b = a.copy()
+        t = b[i]
+        sublist.append(t)
+        b.remove(t)
+        for j in b:
+            if t - j == 0 or t - j == 1:
+                sublist.append(j)
+        list.append(sublist)
+
+    for i in range(n):
+        sublist = []
+        b = a.copy()
+        t = b[i]
+        sublist.append(t)
+        b.remove(t)
+        for j in b:
+            if t - j == 0 or t - j == -1:
+                sublist.append(j)
+        list.append(sublist)
+    c = max(map(len, list))
+    return c
+
+            
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    a = list(map(int, input().rstrip().split()))
+
+    result = pickingNumbers(a)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+Question 8- List Comprehensions
+
+if __name__ == '__main__':
+    x = int(input())
+    y = int(input())
+    z = int(input())
+    n = int(input())
+    print ([[a,b,c] for a in range(x+1) for b in range(y+1) for c in range(z+1) if a + b + c != n ])
+
+Question 9- Lists
+
+if __name__ == '__main__':
+    N = int(input())
+    i=1
+    list=[]
+    while i<N+1:
+        list1=[]
+        list1.append(input().split(" "))
+        if list1[0][0]=="insert":
+            list.insert(int(list1[0][1]),int(list1[0][2]))
+        elif list1[0][0]=="print":
+            print(list)
+        elif list1[0][0]=="remove":
+            list.remove(int(list1[0][1]))
+        elif list1[0][0]=="append":
+            list.append(int(list1[0][1]))
+        elif list1[0][0]=="sort":
+            list.sort()
+        elif list1[0][0]=="pop":
+            list.pop()
+        elif list1[0][0]=="reverse":
+            list.reverse()
+        i=i+1
+
+Question 10- Nested Lists
+
+if __name__ == '__main__':
+    list1=[]
+    list2=[]
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        list1.append([name,score])
+        list2.append(score)
+    second_lowest_mark = sorted(list(set(list2)))[1]
+    for a,b in sorted(list1):
+        if b==second_lowest_mark:
+            print(a)
+
+Question 11- Find the Runner-Up Score!
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    arr=list(set(arr))
+    arr.sort()
+    arr.pop()
+    x=arr.pop()
+    print(x)
+
+Question 12- Finding the percentage
+
+if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+
+    add=0
+    for i in range(3):
+        add+=student_marks[query_name][i]
+    print('{:.2f}'.format(add/3))
+
+Question 13- Staircase
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the staircase function below.
+def staircase(n):
+    x=1
+    for i in range(n):
+        y = n - x
+        print(" "*y+"#"*x)
+        x+=1
+
+if __name__ == '__main__':
+    n = int(input())
+
+    staircase(n)
+
+Question 14- Left Rotation
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+
+
+if __name__ == '__main__':
+    nd = input().split()
+
+    n = int(nd[0])
+
+    d = int(nd[1])
+
+    a = list(map(int, input().rstrip().split()))
+
+for i in range (d):
+    x=a.pop(0)
+    a.append(x)
+
+for i in range(n): 
+    print (a[i], end =" ") 
+
+Question 15- Diagonal Difference
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+#
+# Complete the 'diagonalDifference' function below.
+#
+# The function is expected to return an INTEGER.
+# The function accepts 2D_INTEGER_ARRAY arr as parameter.
+#
+
+def diagonalDifference(arr):
+    primary_diagonal=0
+    secondary_diagonal=0
+
+    for k in range(n):
+        primary_diagonal+=arr[k][k]
+        secondary_diagonal+=arr[n-1-k][k]
+    
+    return abs(primary_diagonal-secondary_diagonal)
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(input().strip())
+
+    arr = []
+
+    for _ in range(n):
+        arr.append(list(map(int, input().rstrip().split())))
+
+    result = diagonalDifference(arr)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
+
+Question 16- Cats and a Mouse
+
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the catAndMouse function below.
+def catAndMouse(x, y, z):
+    if abs(x-z)<abs(y-z):
+        return "Cat A"
+    elif abs(x-z)>abs(y-z):
+        return "Cat B"
+    else:
+        return "Mouse C"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(input())
+
+    for q_itr in range(q):
+        xyz = input().split()
+
+        x = int(xyz[0])
+
+        y = int(xyz[1])
+
+        z = int(xyz[2])
+
+        result = catAndMouse(x, y, z)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
+
+Question 17- Solve Me First
+
+
+def solveMeFirst(a,b):
+    return a+b
+	# Hint: Type return a+b below
+
+
+num1 = int(input())
+num2 = int(input())
+res = solveMeFirst(num1,num2)
+print(res)
